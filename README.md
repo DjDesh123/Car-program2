@@ -7,4 +7,4 @@ This is a refactoring of my first big C program that I have done in my first yea
 
 ---
 ## how to run
--to write uo later
+-to write up later
