@@ -1,5 +1,6 @@
 #include <stdio.h>
-#include "MainMenu.h"
+#include "../include/MainMenu.h"
+#include "../include/Utils.h"
 
 #include <stdlib.h>
 
@@ -14,11 +15,12 @@ void mainMenu() {
     printf("3. View Sales Stats\n");
     printf("4. Sell Car\n");
     printf("5. Exit\n");
-    printf("Select an option: ");
-    scanf("%d", &menuChoice);
+
 
     // to loop untill the user enters a valid choice
     do {
+        printf("Select an option: ");
+        scanf("%d", &menuChoice);
         switch (menuChoice) {
             case VIEW_CARS:
                 printf("Available Cars:\n");
@@ -32,6 +34,7 @@ void mainMenu() {
                 exit(0);
             default:
                 printf("Invalid Input\n");
+                clearInputBuffer();
         }
     }while(menuChoice<VIEW_CARS||menuChoice >EXIT);
 }
