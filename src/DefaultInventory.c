@@ -5,7 +5,6 @@
 
 
 void defaultInventory(){
-    // initializes the data that will be used all around the program
     car carInventory[INITIAL_INVENTORY_SIZE]={
         {"Toyota", 2017, 2500.00, 10},
         {"Honda", 2019, 2200.00, 15},
