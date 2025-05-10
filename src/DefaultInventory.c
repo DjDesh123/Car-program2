@@ -5,6 +5,7 @@
 
 
 void defaultInventory(){
+    // creates the default inventory
     car carInventory[INITIAL_INVENTORY_SIZE]={
         {"Toyota", 2017, 2500.00, 10},
         {"Honda", 2019, 2200.00, 15},
@@ -17,4 +18,17 @@ void defaultInventory(){
         {"Hyundai", 2020, 2300.00, 20},
         {"Kia", 2021, 2600.00, 7}
     };
+
+    //writes the inventory into the .dat file
+    //using .dat for preformance as well as its stores strucs more efficently which is perfect for this case
+
+    FILE *inventoryFile = fopen("Inventory.txt", "w");
+
+    // loops through the struct array via the initial size as it the default storage currently
+    // this also means that we can write in the file each car until we have no more cars to write
+    for (int i = 0; i < INITIAL_INVENTORY_SIZE; i++) {
+        fprintf(inventoryFile, "%s %d %f %d \n", carInventory[i].name,carInventory[i].year,carInventory[i].price,carInventory[i].stock);
+    }
+
+    fclose(inventoryFile);
 }
