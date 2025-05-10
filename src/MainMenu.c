@@ -24,12 +24,16 @@ void mainMenu() {
         switch (menuChoice) {
             case VIEW_CARS:
                 printf("Available Cars:\n");
+                break;
             case BUY_CAR:
                 printf("Buy Cars:\n");
+                break;
             case VIEW_STATS:
                 printf("View Sales Stats:\n");
+                break;
             case SELL_CAR:
                 printf("Sell Car:\n");
+                break;
             case EXIT:
                 exit(0);
             default:
