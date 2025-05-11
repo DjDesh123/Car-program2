@@ -1,5 +1,4 @@
-#include "FileHandler.h"
-#include <stdlib.h>
+#include "../include/FileHandler.h"
 
 // to call the files to handle the file automation depending on the user's operating system
 void fileRedirector(){
@@ -8,6 +7,6 @@ void fileRedirector(){
         system("/include/setup/InventorySetUp.bat");
     //for linux/apple
     #else
-        system("include/setup/InventorySetUp.sh");
+        system("../include/setup/InventorySetUp.sh");
     #endif // ends the ifdef}
 }
