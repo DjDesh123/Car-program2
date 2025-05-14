@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "../include/DefaultInventory.h"
+#include "../include/setup/DefaultInventory.h"
 #include "../include/Inventory.h"
 #define INITIAL_INVENTORY_SIZE 10
 
