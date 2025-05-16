@@ -22,7 +22,7 @@ void defaultInventory(){
     //writes the inventory into the .dat file
     //using .dat for preformance as well as its stores strucs more efficently which is perfect for this case
 
-    FILE *inventoryFile = fopen("Inventory.txt", "w");
+    FILE *inventoryFile = fopen("storage/Inventory.txt", "w");
 
     // loops through the struct array via the initial size as it the default storage currently
     // this also means that we can write in the file each car until we have no more cars to write
