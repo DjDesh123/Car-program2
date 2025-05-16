@@ -1,10 +1,10 @@
-#include "stdio.h"
 #include "../include/MainMenu.h"
-#include "../include/FileHandler.h"
+#include "../include/setup/Bootstrap.h"
 
 
 int main(void){
-  fileRedirector();
+  // calls the bootstrap and the main menu
+  initSystemStorage();
   mainMenu();
   return 0;
 }
