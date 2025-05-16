@@ -13,12 +13,20 @@ void initSystemStorage() {
 
 // creates the first main storage folder
 void createStorageFolder() {
-  MKDIR("storage");
+  if (!directoryExists("storage")) {
+    printf("storage directory does not exist\n");
+    printf("creating folder....\n");
+    MKDIR("storage");
+  }
 }
 
 // creates the backup folder
 void createBackupFolder() {
-  MKDIR("storage/backup");
+  if (!directoryExists("backup")) {
+    printf("backup directory does not exist\n");
+    printf("creating folder....\n");
+    MKDIR("storage/backup");
+  }
 }
 
 void checkInventoryFileExist() {
@@ -28,10 +36,13 @@ void checkInventoryFileExist() {
     //The scenario the file exist
     printf("File already exists.\n");
     fclose(file);
+
   }else {
-    // in the scenario the file doesnt exist
+    // checks and or creates the storage or backup folders
+    createStorageFolder();
     createBackupFolder();
-    createBackupFolder();
+
+    // to initalise and write the Inventory.dat in the correct folder
     defaultInventory();
   }
 }
