@@ -16,3 +16,7 @@ instead of using shell scripts just kepeing it all in c and creating a bootstrap
 
 ## how to run
 -to write up later
+
+
+
+copy inventory file and put the info in the backup file thrn a backup is created.
