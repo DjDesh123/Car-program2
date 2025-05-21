@@ -20,3 +20,14 @@ instead of using shell scripts just kepeing it all in c and creating a bootstrap
 
 
 copy inventory file and put the info in the backup file thrn a backup is created.
+
+then the backup system is incorpersted just beed to add it.
+
+
+
+
+
+
+
+
+
