@@ -38,6 +38,9 @@ void checkInventoryFileExist() {
     fclose(file);
 
   }else {
+    // first we need to load a backup if present then if it doesnt exist or the file corrupted
+    //then need to create the json file as the last wall of defence
+
     // checks and or creates the storage or backup folders
     createStorageFolder();
     createBackupFolder();
@@ -45,4 +48,14 @@ void checkInventoryFileExist() {
     // to initalise and write the Inventory.dat in the correct folder
     defaultInventory();
   }
+}
+
+bool directoryExists(const char *path) {
+  struct STAT st;
+
+  // Check if the given path exists and is a directory:
+  // 1. Use stat() to get info about the path; returns 0 if successful.
+  // 2. Check the file mode bits to see if it's flagged as a directory.
+  // Returns true if both conditions are met, false otherwise.
+  return (STAT(path, &st) == 0 && (st.st_mode & S_IFDIR));
 }
