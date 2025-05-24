@@ -1,7 +1,7 @@
 #include "../include/setup/Bootstrap.h"
 #include "../include/setup/DefaultInventory.h"
+#include "../include/FileManager.h"
 
-#include <stdio.h>
 
 
 // This file will be used to load the essential files into the program upon booting
@@ -22,7 +22,7 @@ void createStorageFolder() {
 
 // creates the backup folder
 void createBackupFolder() {
-  if (!directoryExists("backup")) {
+  if (!directoryExists("storage/backup")) {
     printf("backup directory does not exist\n");
     printf("creating folder....\n");
     MKDIR("storage/backup");
@@ -30,7 +30,7 @@ void createBackupFolder() {
 }
 
 void checkInventoryFileExist() {
-  FILE *file = fopen("storage/Inventory.txt", "r");
+  FILE *file = fopen("storage/Inventory.dat", "r");
 
   if (file) {
     //The scenario the file exist
@@ -45,8 +45,11 @@ void checkInventoryFileExist() {
     createStorageFolder();
     createBackupFolder();
 
-    // to initalise and write the Inventory.dat in the correct folder
+    // to initialise and write the Inventory.dat in the correct folder
     defaultInventory();
+
+    // in the scenario that the file does not exist then a backup will be created
+    backupFile("./storage/Inventory.dat","./storage/backup/backup.dat");
   }
 }
 
