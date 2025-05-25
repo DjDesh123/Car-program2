@@ -26,6 +26,8 @@ then the backup system is incorpersted just beed to add it.
 
 need a way of only being updated by the most recent backup stste if the main file fails whcih wilk be workimg on.
 
+added a new edge case conceot that i recentlyh learned about 
+
 needs to commit all the changes to file handling section of the program
 
 
