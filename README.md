@@ -30,5 +30,6 @@ added a new edge case conceot that i recentlyh learned about
 
 needs to commit all the changes to file handling section of the program
 
+adding more and making the project more professional with nee concepts ive learnt
 
 
