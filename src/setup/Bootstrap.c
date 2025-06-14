@@ -30,7 +30,7 @@ void createBackupFolder() {
 }
 
 void checkInventoryFileExist() {
-  FILE *file = fopen("storage/Inventory.dat", "r");
+  FILE *file = fopen("storage/Inventory.dat", "rb");
 
   if (file) {
     //The scenario the file exist
@@ -49,7 +49,7 @@ void checkInventoryFileExist() {
     defaultInventory();
 
     // in the scenario that the file does not exist then a backup will be created
-    backupFile("./storage/Inventory.dat","./storage/backup/backup.dat");
+    backupFile("./storage/Inventory.dat");
   }
 }
 
