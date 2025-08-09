@@ -15,6 +15,11 @@ static int compareBackupTime(const void *a, const void *b) {
 
 // Main backup cleanup logic — deletes oldest .dat backups if we’ve reached the cap
 void cleanupOldBackups(void) {
+
+    WIN32_FIND_DATA findFileData;
+    HANDLE hFind = INVALID_HANDLE_VALUE;
+    char searchPath[512];
+
     DIR *dir = opendir(BACKUP_DIR);
     if (!dir) {
         perror("Failed to open backup directory");
@@ -25,21 +30,20 @@ void cleanupOldBackups(void) {
     size_t count = 0;
     struct dirent *entry;
 
-    // Scan through all regular files in the folder starting with "backup_"
-    while ((entry = readdir(dir)) != NULL) {
-        if (entry->d_type == DT_REG && strncmp(entry->d_name, BACKUP_PREFIX, strlen(BACKUP_PREFIX)) == 0) {
-            char fullPath[256];
-            snprintf(fullPath, sizeof(fullPath), "%s/%s", BACKUP_DIR, entry->d_name);
+    do {
+        if (!(findFileData.dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY) && count < 100) {
+            snprintf(backups[count].path, sizeof(backups[count].path), "%s\\%s", BACKUP_DIR, findFileData.cFileName);
 
-            struct stat fileStat;
-            if (stat(fullPath, &fileStat) == 0 && count < 100) {
-                strncpy(backups[count].path, fullPath, sizeof(backups[count].path));
-                backups[count].modified_time = fileStat.st_mtime;
-                count++;
-            }
+            FILETIME ft = findFileData.ftLastWriteTime;
+            ULARGE_INTEGER ull;
+            ull.LowPart = ft.dwLowDateTime;
+            ull.HighPart = ft.dwHighDateTime;
+            backups[count].modified_time = (time_t)((ull.QuadPart / 10000000ULL) - 11644473600ULL);
+            count++;
         }
-    }
-    closedir(dir);
+    } while (FindNextFile(hFind, &findFileData) != 0);
+
+    FindClose(hFind);
 
     if (count >= MAX_BACKUPS) {
         qsort(backups, count, sizeof(BackupFile), compareBackupTime);
