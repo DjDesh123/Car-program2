@@ -7,7 +7,7 @@
 
 // function preprocessor
 void initSystemStorage();
-void createStorageFolder();
+int createStorageFolder();
 void createBackupFolder();
 void checkInventoryFileExist();
 bool directoryExists(const char *path);

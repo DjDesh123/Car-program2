@@ -12,12 +12,17 @@ void initSystemStorage() {
 }
 
 // creates the first main storage folder
-void createStorageFolder() {
-  if (!directoryExists("storage")) {
+int createStorageFolder() {
+  if (directoryExists("storage")) {
+    return 0;
+  }
+  if (MKDIR("storage") != 0) {
+    perror("Failed to creat the storage directory");
+    return -1;
+  }
     printf("storage directory does not exist\n");
     printf("creating folder....\n");
     MKDIR("storage");
-  }
 }
 
 // creates the backup folder
@@ -39,7 +44,7 @@ void checkInventoryFileExist() {
 
   }else {
     // first we need to load a backup if present then if it doesnt exist or the file corrupted
-    //then need to create the json file as the last wall of defence
+    // then need to create the json file as the last wall of defence
 
     // checks and or creates the storage or backup folders
     createStorageFolder();
