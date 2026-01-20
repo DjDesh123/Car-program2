@@ -12,7 +12,7 @@ typedef struct {
   int stock;
 } car;
 
-
-
+int createInventory();
+long getFileSize();
 
 #endif //INVENTORY_H

@@ -39,6 +39,7 @@ void mainMenu() {
             default:
                 printf("Invalid Input\n");
                 clearInputBuffer();
+                break;
         }
     }while(menuChoice<VIEW_CARS||menuChoice >EXIT);
 }
