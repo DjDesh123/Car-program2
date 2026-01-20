@@ -11,7 +11,7 @@ Early in development, I focused on file handling before establishing core logic,
 
 
 ## changes of plans
-instead of using shell scripts just kepeing it all in c and creating a bootstrap 
+realising that i could use docker and create constainers for the different os as it would improve the portability and make it more cross compatable if I have to install external libaries 
 
 
 ## how to run
@@ -24,7 +24,7 @@ copy inventory file and put the info in the backup file thrn a backup is created
 then the backup system is incorpersted just beed to add it.
 
 
-need a way of only being updated by the most recent backup stste if the main file fails whcih wilk be workimg on.
+need a way of only being updated by the most recent backup stste if the main file fails whcih will be workimg on.
 
 added a new edge case conceot that i recentlyh learned about 
 
