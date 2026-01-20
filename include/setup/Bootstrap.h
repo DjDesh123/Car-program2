@@ -5,20 +5,12 @@
 #include <stdbool.h>
 
 
-// function preprocessor
-void initSystemStorage();
-int createStorageFolder();
-void createBackupFolder();
-void checkInventoryFileExist();
-bool directoryExists(const char *path);
-
-
-
 // for windows
 #ifdef _WIN32
+    #include <direct.h>
+    #include <sys/stat.h>
     #define STAT _stat
     #define S_IFDIR _S_IFDIR
-    #include <direct.h>
     #define MKDIR(path) _mkdir(path)
 // for linux and apple
 #else
@@ -28,7 +20,11 @@ bool directoryExists(const char *path);
     #define MKDIR(path) mkdir(path, 0777)
 #endif
 
-
-
+// function preprocessor
+void initSystemStorage();
+static int createStorageFolder();
+static int createBackupFolder();
+static bool checkInventoryFileExist();
+bool directoryExists(const char *path);
 
 #endif //BOOTSTRAP_H

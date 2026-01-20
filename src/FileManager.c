@@ -165,6 +165,7 @@ int loadInventoryFromBackupFile() {
         perror("Error opening backup file");
     }
 
+    // TODO: understand why this isn't being used and why i wrote it it in the first place
     size_t inventoryItems =fread(carInventory,sizeof(car),inventorySize,inventoryFile);
 
     fclose(inventoryFile);
@@ -172,11 +173,3 @@ int loadInventoryFromBackupFile() {
 
 }
 
-
-
-/* gets the newest backup from the array and then just turns it into local storage
-int loadInventoryFromBackup() {
-    char fileNamesArr[] =
-
-}
-*/
