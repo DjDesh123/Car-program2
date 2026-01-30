@@ -1,6 +1,6 @@
 #include "FileManager.h"
 
-#include <Inventory.h>
+#include "inventory/Inventory.h"
 #include <stdbool.h>
 
 #include "Utils.h"
@@ -173,3 +173,13 @@ int loadInventoryFromBackupFile() {
 
 }
 
+
+bool directoryExists(const char *path) {
+    struct STAT st;
+
+    // Check if the given path exists and is a directory:
+    // 1. Use stat() to get info about the path; returns 0 if successful.
+    // 2. Check the file mode bits to see if it's flagged as a directory.
+    // Returns true if both conditions are met, false otherwise.
+    return (STAT(path, &st) == 0 && (st.st_mode & S_IFDIR));
+}

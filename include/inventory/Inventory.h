@@ -13,6 +13,6 @@ typedef struct {
 } car;
 
 int createInventory();
-long getFileSize();
+long getFileSize(const char* fileName);
 
 #endif //INVENTORY_H

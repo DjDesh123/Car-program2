@@ -1,9 +1,8 @@
-#include "Bootstrap.h"
-
-#include <Inventory.h>
-#include <InventoryJSON.h>
+#include "setup/Bootstrap.h"
+#include "inventory/Inventory.h"
 #include <stdio.h>
 
+//TODO: MAKE SURE YOU FIX THIS ISTG
 #include "../include/setup/DefaultInventory.h"
 #include "../include/FileManager.h"
 
@@ -34,7 +33,7 @@ void initSystemStorage() {
 
   }
 
-  //checks if the json file exists which if not its created with the default data and then we can move
+  //TODO:checks if the json file exists which if not its created with the default data and then we can move
   // if  it does exist then we need to load from the json to a struct array and boomn it hsould all work
 }
 
@@ -90,12 +89,4 @@ static bool checkInventoryFileExist() {
 }
 
 
-bool directoryExists(const char *path) {
-  struct STAT st;
 
-  // Check if the given path exists and is a directory:
-  // 1. Use stat() to get info about the path; returns 0 if successful.
-  // 2. Check the file mode bits to see if it's flagged as a directory.
-  // Returns true if both conditions are met, false otherwise.
-  return (STAT(path, &st) == 0 && (st.st_mode & S_IFDIR));
-}

@@ -1,7 +1,7 @@
 #ifndef DEFAULTINVENTORY_H
 #define DEFAULTINVENTORY_H
 
-#include "../include/Inventory.h"
+#include "inventory/Inventory.h"
 
 #define INITIAL_INVENTORY_SIZE 10
 
