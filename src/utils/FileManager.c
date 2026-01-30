@@ -1,9 +1,9 @@
-#include "FileManager.h"
+#include "utils/FileManager.h"
 
 #include "inventory/Inventory.h"
 #include <stdbool.h>
 
-#include "Utils.h"
+#include "utils/Utils.h"
 
 #include <stdio.h>
 #include <stdlib.h>

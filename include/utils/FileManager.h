@@ -33,7 +33,9 @@ void cleanupOldBackups(void);
 void removeBackupFile(const char *fileName);
 
 // takes the newest backup fiel and laods it
-int loadInventoryFromBackupFile();
+int loadInventoryFromBackupFile(void);
+
+void checkBackupFiles(void);
 
 
 bool directoryExists(const char *path);

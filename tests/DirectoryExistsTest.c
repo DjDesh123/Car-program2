@@ -1,7 +1,8 @@
 #include <assert.h>
 #include <stdio.h>
-#include "stdbool.h"
-#include "../include/FileManager.h"
+#include <stdbool.h>
+
+#include "utils/FileManager.h"
 
 
 
