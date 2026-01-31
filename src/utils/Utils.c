@@ -109,6 +109,8 @@ char** createFileNameArray(int size,const char *dirPath) {
                 //copy filename into our own memory
                 strcpy(array[count], findData.cFileName);
 
+                //strip backup_ from the name in the array
+
                 count++;
             }
         }while (FindNextFile(hFind, &findData) != 0);

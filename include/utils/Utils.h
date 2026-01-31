@@ -8,8 +8,8 @@
 
 // Internal struct for tracking each backup's full path and last modified time
 typedef struct {
-    char path[MAX_PATH];
-    time_t modified_time;
+    char *path[];
+    char *modified_time;
 } BackupFile;
 
 

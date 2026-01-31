@@ -132,6 +132,7 @@ int loadInventoryFromBackupFile() {
         return false;
     }
 
+    // dont need this
     char **files = createFileNameArray(count,BACKUP_DIR);
 
     if (!files) {

@@ -1,8 +1,7 @@
 #include "setup/InventoryJSON.h"
+#include <cJSON.h>
 //TODO: ADD A DIRECTORY AND GET RID OF THE ../
-
 #include "utils/FileManager.h"
-#include "third_party/cjson/cJSON.h"
 #include "../include/setup/DefaultInventory.h"
 
 #define INITIAL_INVENTORY_SIZE 10
