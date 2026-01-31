@@ -1,11 +1,8 @@
-#include "Bootstrap.h"
-
-#include <Inventory.h>
-#include <InventoryJSON.h>
 #include <stdio.h>
 
-#include "../include/setup/DefaultInventory.h"
-#include "../include/FileManager.h"
+#include "setup/Bootstrap.h"
+#include "inventory/Inventory.h"
+#include "utils/FileManager.h"
 
 // This file will be used to load the essential files into the program upon booting
 void initSystemStorage() {
@@ -27,15 +24,15 @@ void initSystemStorage() {
     return;
   }
 
-  // this will load the inventory from the newest saved backup as long as the other two have happeend because this wouldnt exist if they didnt
+  // this will load the inventory from the newest saved backup as long as the other two have happened because this wouldn't exist if they didn't
   if (!loadInventoryFromBackupFile()) {
-    // checks if the json file exist which isnt hard jsut the file path
-    // if exist then read or if doesnt exist then create
+    // checks if the json file exist which isn't hard just the file path
+    // if exist then read or if it doesn't exist then create
 
   }
 
-  //checks if the json file exists which if not its created with the default data and then we can move
-  // if  it does exist then we need to load from the json to a struct array and boomn it hsould all work
+  //TODO:checks if the json file exists which if not its created with the default data and then we can move
+  // if  it does exist then we need to load from the json to a struct array and boom it should all work
 }
 
 // creates the first main storage folder
@@ -73,7 +70,7 @@ static int createBackupFolder() {
 
   return 0;
 }
-// this function does multiple things what i can do is create a sub function and just call that which then will also handle all the other function calls that are needed to amke it work
+// this function does multiple things what I can do is create a sub function and just call that which then will also handle all the other function calls that are needed to amke it work
 static bool checkInventoryFileExist() {
   // creates a pointer to the file and puts it in read binary mode for efficiency
   FILE *file = fopen("storage/Inventory.dat", "rb");
@@ -90,12 +87,4 @@ static bool checkInventoryFileExist() {
 }
 
 
-bool directoryExists(const char *path) {
-  struct STAT st;
 
-  // Check if the given path exists and is a directory:
-  // 1. Use stat() to get info about the path; returns 0 if successful.
-  // 2. Check the file mode bits to see if it's flagged as a directory.
-  // Returns true if both conditions are met, false otherwise.
-  return (STAT(path, &st) == 0 && (st.st_mode & S_IFDIR));
-}

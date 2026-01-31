@@ -1,9 +1,9 @@
-#include "FileManager.h"
+#include "utils/FileManager.h"
 
-#include <Inventory.h>
+#include "inventory/Inventory.h"
 #include <stdbool.h>
 
-#include "Utils.h"
+#include "utils/Utils.h"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -132,6 +132,7 @@ int loadInventoryFromBackupFile() {
         return false;
     }
 
+    // dont need this
     char **files = createFileNameArray(count,BACKUP_DIR);
 
     if (!files) {
@@ -173,3 +174,13 @@ int loadInventoryFromBackupFile() {
 
 }
 
+
+bool directoryExists(const char *path) {
+    struct STAT st;
+
+    // Check if the given path exists and is a directory:
+    // 1. Use stat() to get info about the path; returns 0 if successful.
+    // 2. Check the file mode bits to see if it's flagged as a directory.
+    // Returns true if both conditions are met, false otherwise.
+    return (STAT(path, &st) == 0 && (st.st_mode & S_IFDIR));
+}

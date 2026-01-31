@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include "../include/MainMenu.h"
-#include "../include/Utils.h"
+#include "utils/Utils.h"
 
 #include <stdlib.h>
 
@@ -17,7 +17,7 @@ void mainMenu() {
     printf("5. Exit\n");
 
 
-    // to loop untill the user enters a valid choice
+    // to loop until the user enters a valid choice
     do {
         printf("Select an option: ");
         scanf("%d", &menuChoice);

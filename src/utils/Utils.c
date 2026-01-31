@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "Utils.h"
+#include "utils/Utils.h"
 
 #include <string.h>
 
@@ -108,6 +108,8 @@ char** createFileNameArray(int size,const char *dirPath) {
 
                 //copy filename into our own memory
                 strcpy(array[count], findData.cFileName);
+
+                //strip backup_ from the name in the array
 
                 count++;
             }
