@@ -72,7 +72,7 @@ static int createBackupFolder() {
 }
 // this function does multiple things what I can do is create a sub function and just call that which then will also handle all the other function calls that are needed to amke it work
 static bool checkInventoryFileExist() {
-  // creates a pointer to the file and puts it in read binary mode for efficiency
+  // creates a pointer to the file and puts it in read binary mode for efficienc y
   FILE *file = fopen("storage/Inventory.dat", "rb");
 
   // checks if the file exist
