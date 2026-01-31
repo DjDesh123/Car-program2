@@ -41,6 +41,7 @@ target_include_directories(directory_exists_test PRIVATE
         include
 )
 
+#gives the test acess to the project headers if needed
 target_include_directories(check_backup_files_test PRIVATE
         include
 )
