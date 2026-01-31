@@ -31,7 +31,17 @@ add_executable(directory_exists_test
         src/utils/FileManager.c
 )
 
+#tests for CheckBackupFilesTest
+add_executable(check_backup_files_test
+        tests/CheckBackupFilesTest.c
+)
+
 #gives the test access to the project headers
 target_include_directories(directory_exists_test PRIVATE
+        include
+)
+
+#gives the test acess to the project headers if needed
+target_include_directories(check_backup_files_test PRIVATE
         include
 )
