@@ -1,6 +1,6 @@
 #include <stdio.h>
-#include "../include/app/CarProgram2.h"
-#include "../include/MainMenu.h"
+#include "CarProgram2.h"
+#include "MainMenu.h"
 
 
 void carAppRun() {

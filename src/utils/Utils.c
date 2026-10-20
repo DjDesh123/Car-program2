@@ -17,12 +17,17 @@
     #define FILE_INFO struct stat
 #endif
 
-// Used for qsort() to sort backup files by last modified time (oldest first)
- int compareBackupTime(const void *a, const void *b) {
-    const BackupFile *fileA = a;
-    const BackupFile *fileB = b;
-    return (fileA->modified_time < fileB->modified_time) ? -1 : 1;
+
+void clearInputBuffer() {
+    while (getchar() != '\n');
 }
+
+// Used for qsort() to sort backup files by last modified time (oldest first)
+// int compareBackupTime(const void *a, const void *b) {
+   // const BackupFile *fileA = a;
+    //const BackupFile *fileB = b;
+   // return (fileA->modified_time < fileB->modified_time) ? -1 : 1;
+//}
 
 int countBackupFiles(const char *dirPath) {
     size_t count = 0;
@@ -66,9 +71,7 @@ int countBackupFiles(const char *dirPath) {
     return count;
 }
 
-void clearInputBuffer() {
-    while (getchar() != '\n');
-}
+
 
 // size is going to be the countBackupFiles
 // then create the array to then use a qsort

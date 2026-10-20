@@ -1,4 +1,5 @@
-#include "../include/MainMenu.h"
+#include "MainMenu.h"
+#include "Utils.h"
 
 static void showDisplay();
 
@@ -34,7 +35,7 @@ void mainMenu() {
                 exit(0);
             default:
                 printf("Invalid Input\n");
-
+                clearInputBuffer();
                 break;
         }
     }while(menuChoice<VIEW_CARS||menuChoice >EXIT);
