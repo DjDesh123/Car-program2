@@ -13,8 +13,6 @@
 //} BackupFile;
 
 
-
-int countBackupFiles(const char *dirPath);
 int compareBackupTime(const void *a, const void *b);
 void clearInputBuffer();
 char** createFileNameArray(int size,const char *dirPath);
