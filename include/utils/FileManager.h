@@ -2,6 +2,7 @@
 #define FILE_MANAGER_H
 
 #include <stdbool.h>
+#include <stdio.h>
 
 //TODO: fix this as well
 // for windows
@@ -20,6 +21,9 @@
 #endif
 
 
+bool createStorageFolder();
+bool createBackupFolder();
+
 // max files that can be held at a time
 #define MAX_BACKUPS 5
 
@@ -37,7 +41,5 @@ int loadInventoryFromBackupFile(void);
 
 void checkBackupFiles(void);
 
-
-bool directoryExists(const char *path);
 
 #endif

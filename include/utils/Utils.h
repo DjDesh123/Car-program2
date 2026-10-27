@@ -7,14 +7,12 @@
 
 
 // Internal struct for tracking each backup's full path and last modified time
-typedef struct {
-    char *path[];
-    char *modified_time;
-} BackupFile;
+//typedef struct {
+   // char *path[];
+    //char *modified_time;
+//} BackupFile;
 
 
-
-int countBackupFiles(const char *dirPath);
 int compareBackupTime(const void *a, const void *b);
 void clearInputBuffer();
 char** createFileNameArray(int size,const char *dirPath);

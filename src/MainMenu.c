@@ -1,26 +1,23 @@
-#include <stdio.h>
-#include "../include/MainMenu.h"
-#include "utils/Utils.h"
+#include "MainMenu.h"
+#include "Utils.h"
 
-#include <stdlib.h>
+static void showDisplay();
 
+// to improve readability we used enums
+typedef enum {VIEW_CARS = 1,BUY_CAR=2,VIEW_STATS=3,SELL_CAR=4,EXIT=5} menuOption;
 
 void mainMenu() {
     int menuChoice;
 
     // Displays the options that the user can pick
-    printf("---- Car Dealership System ----\n");
-    printf("1. View Available Cars\n");
-    printf("2. Buy Cars\n");
-    printf("3. View Sales Stats\n");
-    printf("4. Sell Car\n");
-    printf("5. Exit\n");
-
+    showDisplay();
 
     // to loop until the user enters a valid choice
     do {
+
         printf("Select an option: ");
         scanf("%d", &menuChoice);
+
         switch (menuChoice) {
             case VIEW_CARS:
                 printf("Available Cars:\n");
@@ -44,3 +41,11 @@ void mainMenu() {
     }while(menuChoice<VIEW_CARS||menuChoice >EXIT);
 }
 
+static void showDisplay() {
+    printf("---- Car Dealership System ----\n");
+    printf("1. View Available Cars\n");
+    printf("2. Buy Cars\n");
+    printf("3. View Sales Stats\n");
+    printf("4. Sell Car\n");
+    printf("5. Exit\n");
+}

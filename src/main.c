@@ -1,10 +1,8 @@
-#include "../include/MainMenu.h"
-#include "../include/setup/Bootstrap.h"
+#include <stdio.h>
+#include "CarProgram2.h"
 
 
 int main(void){
-  // calls the bootstrap and the main menu
-  initSystemStorage();
-  mainMenu();
+  carAppRun();
   return 0;
 }
